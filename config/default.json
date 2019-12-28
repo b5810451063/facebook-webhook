@@ -1,6 +1,6 @@
 {
     "appSecret": "g4JYUvzhckOrEBz6VqOe3T9IgoNn33rb",
-    "pageAccessToken": "EAAGq3WcRZC2sBAJHZBVzDROiF6DFTJEbRHiXojjlKXMuYmIyxBnF3FZAOFF2l4zOr6WxtqyTVW22AOG9S9NdxTSZAw0IZBZBN9FEXjib8yASpiSFthbGDpZCKVwHZAPSzGrdotRTSuIZAaH7DANZCgdxJlaYQDAC6i7vwsTCbePurThAZDZD",
+    "pageAccessToken": "EAAGq3WcRZC2sBAAkDhrrEB49dWmpnE4ZCUvVxAKbypeuM2nAPiC5oNxaQQ9vBfBIOSgqkDIkfD0EQvsLZAEdibRSVOvIb1yYHWdvrZBQUNTmmYmjw5LwGNvYh33UybJuykpNUU4YEdwPYg8lTBberApZAEQK2CXZABUhaXhBkHIgZDZD",
     "validationToken": "abc",
-    "serverURL": "https://7c143c63.ngrok.io"
+    "serverURL": "http://localhost:1150"
 }
