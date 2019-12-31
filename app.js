@@ -98,22 +98,16 @@ app.post('/webhook', function (req, res) {
       pageEntry.messaging.forEach(function(messagingEvent) {
         if (messagingEvent.optin) {
           receivedAuthentication(messagingEvent);
-          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.message) {
           receivedMessage(messagingEvent);
-          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
-          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.postback) {
           receivedPostback(messagingEvent);
-          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.read) {
-          callSendSwitcher(messagingEvent)
           receivedMessageRead(messagingEvent);
         } else if (messagingEvent.account_linking) {
           receivedAccountLink(messagingEvent);
-          callSendSwitcher(messagingEvent)
         } else {
           console.log("Webhook received unknown messagingEvent: ", messagingEvent);
         }
@@ -433,6 +427,7 @@ function sendImageMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -455,6 +450,7 @@ function sendGifMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -477,6 +473,7 @@ function sendAudioMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -499,6 +496,7 @@ function sendVideoMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -521,6 +519,7 @@ function sendFileMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -539,6 +538,7 @@ function sendTextMessage(recipientId, messageText) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -575,6 +575,7 @@ function sendButtonMessage(recipientId) {
   };  
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -626,6 +627,8 @@ function sendGenericMessage(recipientId) {
   };  
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
+
 }
 
 /*
@@ -692,6 +695,7 @@ function sendReceiptMessage(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -726,6 +730,7 @@ function sendQuickReply(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -743,6 +748,7 @@ function sendReadReceipt(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -760,6 +766,7 @@ function sendTypingOn(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
@@ -777,6 +784,8 @@ function sendTypingOff(recipientId) {
   };
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
+
 }
 
 /*
@@ -804,6 +813,7 @@ function sendAccountLinking(recipientId) {
   };  
 
   callSendAPI(messageData);
+  callSendSwitcher(messageData);
 }
 
 /*
