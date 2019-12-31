@@ -100,10 +100,12 @@ app.post('/webhook', function (req, res) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
           receivedMessage(messagingEvent);
+          callSendSwitcher(data)
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
           receivedPostback(messagingEvent);
+          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
         } else if (messagingEvent.account_linking) {
@@ -427,7 +429,6 @@ function sendImageMessage(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -450,7 +451,6 @@ function sendGifMessage(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -473,7 +473,6 @@ function sendAudioMessage(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -496,7 +495,6 @@ function sendVideoMessage(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -519,7 +517,6 @@ function sendFileMessage(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -538,7 +535,6 @@ function sendTextMessage(recipientId, messageText) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -575,7 +571,6 @@ function sendButtonMessage(recipientId) {
   };  
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -627,8 +622,6 @@ function sendGenericMessage(recipientId) {
   };  
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
-
 }
 
 /*
@@ -695,7 +688,6 @@ function sendReceiptMessage(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -730,7 +722,6 @@ function sendQuickReply(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -748,7 +739,6 @@ function sendReadReceipt(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -766,7 +756,6 @@ function sendTypingOn(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
@@ -784,8 +773,6 @@ function sendTypingOff(recipientId) {
   };
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
-
 }
 
 /*
@@ -813,7 +800,6 @@ function sendAccountLinking(recipientId) {
   };  
 
   callSendAPI(messageData);
-  callSendSwitcher(messageData);
 }
 
 /*
