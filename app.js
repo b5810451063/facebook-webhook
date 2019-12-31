@@ -51,6 +51,10 @@ const SERVER_URL = (process.env.SERVER_URL) ?
   (process.env.SERVER_URL) :
   config.get('serverURL');
 
+var SWITCHER_BASE_URL = (process.env.SWITCHER_BASE_URL) ?
+  (process.env.SWITCHER_BASE_URL) :
+  config.get('switcher_base_url');
+
 if (!(APP_SECRET && VALIDATION_TOKEN && PAGE_ACCESS_TOKEN && SERVER_URL)) {
   console.error("Missing config values");
   process.exit(1);
@@ -834,7 +838,7 @@ function callSendAPI(messageData) {
 
 function callSendSwitcher(messageData) {
   request({
-    uri: 'localhost:9090/switcher-service/facebook/api/v1/webhook',
+    uri: SWITCHER_BASE_URL+'/switcher-service/facebook/api/v1/webhook',
     method: 'POST',
     headers: {
       'Authorization' : 'Basic c2NiY29ubmVjdDpwYXNzd29yZA=='
