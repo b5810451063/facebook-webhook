@@ -1,0 +1,8 @@
+{
+    "name": "facebook-webhook-chat",
+    "description": "demo for facebook api",
+    "repository": "https://github.com/b5810451063/facebook-webhook",
+    "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
+    "keywords": ["node", "express", "heroku"],
+    "image": "heroku/nodejs"
+  }
