@@ -94,16 +94,22 @@ app.post('/webhook', function (req, res) {
       pageEntry.messaging.forEach(function(messagingEvent) {
         if (messagingEvent.optin) {
           receivedAuthentication(messagingEvent);
+          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.message) {
           receivedMessage(messagingEvent);
+          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
+          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.postback) {
           receivedPostback(messagingEvent);
+          callSendSwitcher(messagingEvent)
         } else if (messagingEvent.read) {
+          callSendSwitcher(messagingEvent)
           receivedMessageRead(messagingEvent);
         } else if (messagingEvent.account_linking) {
           receivedAccountLink(messagingEvent);
+          callSendSwitcher(messagingEvent)
         } else {
           console.log("Webhook received unknown messagingEvent: ", messagingEvent);
         }
@@ -819,6 +825,31 @@ function callSendAPI(messageData) {
       } else {
       console.log("Successfully called Send API for recipient %s", 
         recipientId);
+      }
+    } else {
+      console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
+    }
+  });  
+}
+
+function callSendSwitcher(messageData) {
+  request({
+    uri: 'localhost:9090/switcher-service/facebook/api/v1/webhook',
+    method: 'POST',
+    headers: {
+      'Authorization' : 'Basic c2NiY29ubmVjdDpwYXNzd29yZA=='
+    },
+    json: messageData
+
+  }, function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+      var recipientId = body.recipient_id;
+      var messageId = body.message_id;
+
+      if (messageId) {
+        console.log("Successfully sent to switcher with id %s to recipient %s",messageId, recipientId);
+      } else {
+      console.log("Successfully sent to switcher for recipient %s",recipientId);
       }
     } else {
       console.error("Failed calling Send API", response.statusCode, response.statusMessage, body.error);
