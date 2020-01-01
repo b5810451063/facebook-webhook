@@ -2,6 +2,6 @@
     "appSecret": "g4JYUvzhckOrEBz6VqOe3T9IgoNn33rb",
     "pageAccessToken": "EAAGq3WcRZC2sBAAkDhrrEB49dWmpnE4ZCUvVxAKbypeuM2nAPiC5oNxaQQ9vBfBIOSgqkDIkfD0EQvsLZAEdibRSVOvIb1yYHWdvrZBQUNTmmYmjw5LwGNvYh33UybJuykpNUU4YEdwPYg8lTBberApZAEQK2CXZABUhaXhBkHIgZDZD",
     "validationToken": "abc",
-    "serverURL": "https://git.heroku.com/aqueous-lowlands-71535.git",
-    "switcher_base_url": "https://62a652f9.ngrok.io"
+    "serverURL": "localhost",
+    "switcher_base_url": "localhost"
 }   
