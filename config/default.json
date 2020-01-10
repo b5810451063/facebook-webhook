@@ -1,7 +1,7 @@
 {
     "appSecret": "g4JYUvzhckOrEBz6VqOe3T9IgoNn33rb",
-    "pageAccessToken": "EAAGq3WcRZC2sBAAkDhrrEB49dWmpnE4ZCUvVxAKbypeuM2nAPiC5oNxaQQ9vBfBIOSgqkDIkfD0EQvsLZAEdibRSVOvIb1yYHWdvrZBQUNTmmYmjw5LwGNvYh33UybJuykpNUU4YEdwPYg8lTBberApZAEQK2CXZABUhaXhBkHIgZDZD",
+    "pageAccessToken": "EAAGq3WcRZC2sBAJft5Kmog68FHQ63WWPsEYBP0t5HFE2jJ2XrsmqMMdxKfv0tTRUdZAm5aUd1NekPymSnr1jL94jFFpYJMVKMcnV3J5IZBZBD7aHXj01Kjr9LOB4AwRH5K0hEZBZCs8LOXco2E0EZBmgWfcJksWqeQ8ZBwgE1QlrtAZDZD",
     "validationToken": "abc",
     "serverURL": "localhost",
-    "switcher_base_url": "localhost"
+    "switcher_base_url": "https://devinternal.digitalten.xyz"
 }   
