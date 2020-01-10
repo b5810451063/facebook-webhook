@@ -100,12 +100,12 @@ app.post('/webhook', function (req, res) {
           receivedAuthentication(messagingEvent);
         } else if (messagingEvent.message) {
           receivedMessage(messagingEvent);
-          callSendSwitcher(data)
+          callSendSwitcher(data);
         } else if (messagingEvent.delivery) {
           receivedDeliveryConfirmation(messagingEvent);
         } else if (messagingEvent.postback) {
           receivedPostback(messagingEvent);
-          callSendSwitcher(messagingEvent)
+          callSendSwitcher(messagingEvent);
         } else if (messagingEvent.read) {
           receivedMessageRead(messagingEvent);
         } else if (messagingEvent.account_linking) {
@@ -834,11 +834,8 @@ function callSendAPI(messageData) {
 
 function callSendSwitcher(messageData) {
   request({
-    uri: SWITCHER_BASE_URL+'/switcher-service/facebook/api/v1/webhook',
+    uri: SWITCHER_BASE_URL+'/fb-switcher-service/facebook/api/v1/webhook',
     method: 'POST',
-    headers: {
-      'Authorization' : 'Basic c2NiY29ubmVjdDpwYXNzd29yZA=='
-    },
     json: messageData
 
   }, function (error, response, body) {
